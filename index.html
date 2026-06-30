@@ -760,6 +760,22 @@ footer a{color:var(--accent);}
 <a href="https://wa.me/5491135019702" target="_blank" rel="noopener" class="fab-wa" title="Escribir por WhatsApp">💬</a>
 <div class="toast" id="toast">Email copiado al portapapeles ✓</div>
 
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <div class="video-modal-card">
+    <div class="video-modal-head">
+      <div>
+        <h3 id="videoModalTitle">Demo</h3>
+        <span>Demo funcional del sistema</span>
+      </div>
+      <button class="video-close" id="videoClose" aria-label="Cerrar video">×</button>
+    </div>
+    <video id="demoVideo" controls playsinline preload="metadata">
+      <source src="" type="video/mp4">
+      Tu navegador no soporta reproducción de video.
+    </video>
+  </div>
+</div>
+
 <script>
 /* ====================================================================
    DATA
@@ -1133,22 +1149,6 @@ document.addEventListener('keydown', (e)=>{
 });
 
 </script>
-
-<div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-modal-card">
-    <div class="video-modal-head">
-      <div>
-        <h3 id="videoModalTitle">Demo</h3>
-        <span>Demo funcional del sistema</span>
-      </div>
-      <button class="video-close" id="videoClose" aria-label="Cerrar video">×</button>
-    </div>
-    <video id="demoVideo" controls playsinline preload="metadata">
-      <source src="" type="video/mp4">
-      Tu navegador no soporta reproducción de video.
-    </video>
-  </div>
-</div>
 
 </body>
 </html>
