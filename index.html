@@ -475,6 +475,21 @@ header.nav.scrolled{
 .proj-row span{color:var(--text-dim);}
 .proj-link{margin-top:14px;display:inline-block;font-size:13px;color:var(--accent2);font-weight:600;}
 
+/* ============ PORTFOLIO · VIDEO (compacto, formato vertical) ============ */
+.video-proj-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+.video-proj-card .proj-img{
+  height:auto;
+  aspect-ratio:9/16;
+}
+.video-proj-card .proj-img img{
+  object-position:center 18%;
+}
+.video-proj-card .proj-body{padding:16px 18px;}
+.video-proj-card .proj-body h4{font-size:14.5px;margin-bottom:8px;}
+.video-proj-card .video-caption{font-size:12.5px;color:var(--text-dim);margin-bottom:6px;line-height:1.4;}
+.video-proj-card .video-tools{font-size:11px;color:var(--text-faint);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
+.video-proj-card .proj-link{margin-top:2px;}
+
 /* ============ DASHBOARD ============ */
 .dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .dash-card{
@@ -711,7 +726,7 @@ footer a{color:var(--accent);}
       <h2>Videos generados con IA</h2>
       <p>Piezas audiovisuales producidas con herramientas de inteligencia artificial: Google Flow, Nemo Video, CapCut y Claude.</p>
     </div>
-    <div class="proj-grid" id="videoProjGrid"></div>
+    <div class="proj-grid video-proj-grid" id="videoProjGrid"></div>
   </div>
 </section>
 
@@ -961,11 +976,8 @@ const projects = [
 const videoProjects = [
   {
     title:"Video institucional We Sell",
-    client:"We Sell Soluciones Digitales",
-    problem:"Necesidad de una pieza audiovisual que presente a la agencia, sus servicios y propuesta de valor de forma clara y profesional.",
-    solution:"Producción de video institucional generado con herramientas de IA (guion, storyboard y edición), pensado para redes y presentaciones comerciales.",
-    tools:"Google Flow, Nemo Video, CapCut, Claude, guion, storyboard, edición",
-    result:"Pieza audiovisual institucional lista para reforzar la presencia digital y comercial de la agencia.",
+    caption:"Pieza institucional generada con IA para presentar a la agencia y su propuesta de valor.",
+    tools:"Google Flow, Nemo Video, CapCut, Claude",
     link:"#",
     image:"assets/videos/we-sell-soluciones-thumb.jpg",
     video:"assets/videos/we-sell-soluciones.mp4",
@@ -974,11 +986,8 @@ const videoProjects = [
 
   {
     title:"Publicidad We Sell — Mercado Libre",
-    client:"We Sell Soluciones Digitales",
-    problem:"Necesidad de comunicar el servicio de gestión de cuentas de Mercado Libre de forma atractiva para captar nuevos clientes.",
-    solution:"Spot publicitario generado con IA orientado a marketplace, resaltando beneficios del servicio de gestión y optimización en Mercado Libre.",
-    tools:"Google Flow, Nemo Video, CapCut, Claude, publicidad digital, guion, edición",
-    result:"Pieza publicitaria lista para campañas de captación de clientes en redes y marketplace.",
+    caption:"Spot publicitario generado con IA para captar clientes del servicio de gestión en Mercado Libre.",
+    tools:"Google Flow, Nemo Video, CapCut, Claude",
     link:"#",
     image:"assets/videos/publicidad-wesell-ml-thumb.jpg",
     video:"assets/videos/publicidad-wesell-ml.mp4",
@@ -987,11 +996,8 @@ const videoProjects = [
 
   {
     title:"Pieza creativa IA — Reel",
-    client:"Proyecto personal / demo de producción con IA",
-    problem:"Explorar el potencial de la IA generativa para producir contenido audiovisual creativo de calidad profesional.",
-    solution:"Reel generado íntegramente con herramientas de IA (Runway, Kling AI, Veo), demostrando capacidades de producción de video sin rodaje tradicional.",
-    tools:"Google Flow, Nemo Video, CapCut, Claude, edición con IA",
-    result:"Pieza creativa que demuestra dominio de flujos de producción audiovisual con inteligencia artificial.",
+    caption:"Reel generado íntegramente con IA, sin rodaje tradicional.",
+    tools:"Google Flow, Nemo Video, CapCut, Claude",
     link:"#",
     image:"assets/videos/reel-ia-mujer-thumb.jpg",
     video:"assets/videos/reel-ia-mujer.mp4",
@@ -1000,10 +1006,8 @@ const videoProjects = [
 
   {
     title:"Pieza creativa IA — Surfer del Mar",
-    client:"Proyecto personal / demo de producción con IA",
-    problem:"Explorar el potencial de la IA generativa para producir contenido audiovisual creativo de calidad profesional.",
-    solution:"Video generado con herramientas de IA mostrando una escena de surf, demostrando capacidades de producción audiovisual creativa sin rodaje tradicional.",
-    tools:"Google Flow, Nemo Video, CapCut, Claude, edición con IA",
+    caption:"Video creativo generado con IA, sin rodaje tradicional.",
+    tools:"Google Flow, Nemo Video, CapCut, Claude",
     result:"Pieza creativa que demuestra dominio de flujos de producción audiovisual con inteligencia artificial.",
     link:"#",
     image:"assets/videos/surfer-delmar-thumb.jpg",
@@ -1115,8 +1119,23 @@ function renderProjCard(p){
     </div>
   </div>`;
 }
+function renderVideoCard(p){
+  return `
+  <div class="proj-card video-proj-card">
+    <div class="proj-img">
+      <img src="${p.image}" alt="${p.alt || p.title}" loading="lazy">
+      <span class="video-badge">▶ Ver presentación</span>
+    </div>
+    <div class="proj-body">
+      <h4>${p.title}</h4>
+      <div class="video-caption">${p.caption}</div>
+      <div class="video-tools">${p.tools}</div>
+      <button class="proj-link video-link" data-video="${p.video}" data-title="${p.title}">▶ Ver presentación</button>
+    </div>
+  </div>`;
+}
 document.getElementById('projGrid').innerHTML = projects.map(renderProjCard).join("");
-document.getElementById('videoProjGrid').innerHTML = videoProjects.map(renderProjCard).join("");
+document.getElementById('videoProjGrid').innerHTML = videoProjects.map(renderVideoCard).join("");
 
 /* ====================================================================
    INTERACTIONS
