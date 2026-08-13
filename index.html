@@ -705,6 +705,13 @@ footer a{color:var(--accent);}
       <p>Selección de proyectos representativos. Links e imágenes son placeholders editables.</p>
     </div>
     <div class="proj-grid" id="projGrid"></div>
+
+    <div class="section-head reveal" style="margin-top:64px;">
+      <div class="eyebrow">Portfolio · Video</div>
+      <h2>Videos generados con IA</h2>
+      <p>Piezas audiovisuales producidas con herramientas de inteligencia artificial: Google Flow, Nemo Video, CapCut y Claude.</p>
+    </div>
+    <div class="proj-grid" id="videoProjGrid"></div>
   </div>
 </section>
 
@@ -949,6 +956,9 @@ const projects = [
     alt:"Sistema WeStock de gestión de stock omnicanal con dashboard, alertas e integraciones"
   },
 
+];
+
+const videoProjects = [
   {
     title:"Video institucional We Sell",
     client:"We Sell Soluciones Digitales",
@@ -1088,7 +1098,8 @@ document.getElementById('dashGrid').innerHTML = dashboard.map(d=>`
 `).join("");
 
 // Projects
-document.getElementById('projGrid').innerHTML = projects.map((p,i)=>`
+function renderProjCard(p){
+  return `
   <div class="proj-card">
     <div class="proj-img">
       <img src="${p.image}" alt="${p.alt || p.title}" loading="lazy">
@@ -1102,8 +1113,10 @@ document.getElementById('projGrid').innerHTML = projects.map((p,i)=>`
       <div class="proj-row"><b>Resultado esperado</b><span>${p.result}</span></div>
       ${p.video ? `<button class="proj-link video-link" data-video="${p.video}" data-title="${p.title}">▶ Ver presentación</button>` : `<a href="${p.link}" class="proj-link">Ver más →</a>`}
     </div>
-  </div>
-`).join("");
+  </div>`;
+}
+document.getElementById('projGrid').innerHTML = projects.map(renderProjCard).join("");
+document.getElementById('videoProjGrid').innerHTML = videoProjects.map(renderProjCard).join("");
 
 /* ====================================================================
    INTERACTIONS
