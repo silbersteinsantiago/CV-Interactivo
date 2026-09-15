@@ -412,20 +412,20 @@ html[data-theme="light"] .language-select{color-scheme:light;}
 .proj-img img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   transition:transform .45s ease, filter .45s ease;
 }
 .proj-img video{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
   filter:saturate(1.02) contrast(1.04);
   transition:transform .45s ease, filter .45s ease;
 }
 .proj-card:hover .proj-img img,
 .proj-card:hover .proj-img video{
-  transform:scale(1.045);
+  transform:none;
   filter:saturate(1.08) contrast(1.04);
 }
 .proj-img::after{
@@ -742,7 +742,7 @@ footer a{color:var(--accent);}
       <h3 class="workflow-title">Del proceso manual al sistema inteligente</h3>
       <p class="workflow-lead">Diseño ecosistemas donde datos, automatizaciones, agentes de IA y canales comerciales trabajan conectados para transformar una operación en un sistema medible, escalable y accionable.</p>
       <div class="workflow-layout">
-        <div class="workflow-visual"><img src="assets/workflow-we-sell.jpg" alt="Arquitectura del workflow WeStock, Sala IA y Asistente WeSell" loading="lazy" decoding="async"></div>
+        <div class="workflow-visual"><img src="https://raw.githubusercontent.com/silbersteinsantiago/CV-Interactivo/main/workflow-we-sell.jpg" alt="Arquitectura del workflow WeStock, Sala IA y Asistente WeSell" loading="eager" decoding="async"></div>
         <div class="workflow-side">
           <div class="workflow-node"><div class="workflow-icon">01 / INPUT</div><strong>Captura y enriquecimiento</strong><span>Productos, proveedores, costos y señales de mercado se centralizan en una única base operativa.</span></div>
           <div class="workflow-node"><div class="workflow-icon">02 / INTELLIGENCE</div><strong>Agentes y reglas de negocio</strong><span>La IA analiza, recomienda, publica y ejecuta tareas con criterios comerciales definidos.</span></div>
