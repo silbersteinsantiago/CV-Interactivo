@@ -391,6 +391,10 @@ html[data-theme="light"] .language-select{color-scheme:light;}
 }
 @media(max-width:760px){.ai-grid{grid-template-columns:1fr;}}
 
+/* ============ AI WORKFLOW ============ */
+.ai-workflow{margin-top:34px;padding:28px;border:1px solid var(--panel-border);border-radius:var(--radius);background:linear-gradient(135deg,rgba(34,211,238,.07),rgba(255,255,255,.025) 48%,rgba(99,102,241,.07));overflow:hidden}
+.workflow-kicker{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-size:10px;margin-bottom:9px}.workflow-title{font-size:clamp(24px,3vw,38px);margin:0 0 10px;font-weight:800;letter-spacing:-.04em}.workflow-lead{max-width:720px;color:var(--text-dim);line-height:1.65;margin:0 0 24px}.workflow-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:22px}.workflow-visual{border:1px solid var(--panel-border);border-radius:16px;background:#f6f8f7;padding:10px}.workflow-visual img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:10px}.workflow-side{display:grid;gap:12px}.workflow-node{padding:17px;border:1px solid var(--panel-border);border-radius:14px;background:rgba(255,255,255,.045)}.workflow-node strong{display:block;font-size:15px;margin-bottom:6px}.workflow-node span{display:block;color:var(--text-dim);font-size:13px;line-height:1.5}.workflow-icon{color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:12px;margin-bottom:9px}.workflow-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.workflow-pillar{padding:16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--panel-border)}.workflow-pillar b{display:block;margin-bottom:7px}.workflow-pillar small{color:var(--text-dim);line-height:1.5}@media(max-width:900px){.workflow-layout{grid-template-columns:1fr}}@media(max-width:760px){.ai-workflow{padding:20px}.workflow-pillars{grid-template-columns:1fr}}
+
 /* ============ PORTFOLIO ============ */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;}
 .proj-card{
@@ -733,6 +737,20 @@ footer a{color:var(--accent);}
       <p>Uso operativo de IA generativa para research, automatización, contenido y producción.</p>
     </div>
     <div class="ai-grid" id="aiGrid"></div>
+    <div class="ai-workflow">
+      <div class="workflow-kicker">AI operating system · workflow architecture</div>
+      <h3 class="workflow-title">Del proceso manual al sistema inteligente</h3>
+      <p class="workflow-lead">Diseño ecosistemas donde datos, automatizaciones, agentes de IA y canales comerciales trabajan conectados para transformar una operación en un sistema medible, escalable y accionable.</p>
+      <div class="workflow-layout">
+        <div class="workflow-visual"><img src="assets/workflow-we-sell.jpg" alt="Arquitectura del workflow WeStock, Sala IA y Asistente WeSell" loading="lazy" decoding="async"></div>
+        <div class="workflow-side">
+          <div class="workflow-node"><div class="workflow-icon">01 / INPUT</div><strong>Captura y enriquecimiento</strong><span>Productos, proveedores, costos y señales de mercado se centralizan en una única base operativa.</span></div>
+          <div class="workflow-node"><div class="workflow-icon">02 / INTELLIGENCE</div><strong>Agentes y reglas de negocio</strong><span>La IA analiza, recomienda, publica y ejecuta tareas con criterios comerciales definidos.</span></div>
+          <div class="workflow-node"><div class="workflow-icon">03 / OUTPUT</div><strong>Canales conectados</strong><span>Mercado Libre, Tienda Nube, Amazon y Shopify reciben información sincronizada y accionable.</span></div>
+        </div>
+      </div>
+      <div class="workflow-pillars"><div class="workflow-pillar"><b>WeStock</b><small>Stock, ventas y operaciones omnicanal en una base unificada.</small></div><div class="workflow-pillar"><b>WeSell Sala IA</b><small>Agentes virtuales para rentabilidad, publicaciones, atención y marketing.</small></div><div class="workflow-pillar"><b>Asistente WeSell</b><small>Monitoreo, scraping, alertas y automatizaciones que corren solas.</small></div></div>
+    </div>
     <div class="ai-video-head reveal" id="ai-content">
       <div class="eyebrow">Contenido para redes</div>
       <h3>Videos, demos y piezas comerciales con IA</h3>
@@ -990,9 +1008,9 @@ const projects = [
     tools:"WeStock, gestión de inventario, automatización, APIs, Mercado Libre, Amazon, Shopify, Tiendanube",
     result:"Stock más preciso, administración unificada y reducción de errores operativos en negocios digitales omnicanal.",
     link:"#",
-    image:"assets/westock-card.png",
-    video:"assets/westock-demo.mp4",
-    previewVideo:"assets/westock-demo.mp4",
+    image:"westock-card.png",
+    video:"westock-demo.mp4",
+    previewVideo:"westock-demo.mp4",
     alt:"Sistema WeStock de gestión de stock omnicanal con dashboard, alertas e integraciones"
   },
   {
@@ -1003,7 +1021,7 @@ const projects = [
     tools:"Storytelling comercial, dirección de contenido, identidad visual, edición de video, comunicación B2B",
     result:"Mayor claridad de posicionamiento y una presentación más dinámica para reuniones, web y redes.",
     link:"#",
-    image:"assets/westock-card.png",
+    image:"assets/videos/we-sell-soluciones-thumb.jpg",
     video:"assets/videos/we-sell-soluciones.mp4",
     previewVideo:"assets/videos/we-sell-soluciones.mp4",
     alt:"Video institucional de We Sell Soluciones"
@@ -1016,7 +1034,7 @@ const projects = [
     tools:"Performance marketing, Mercado Libre, contenido comercial, edición de video, pauta digital",
     result:"Pieza lista para usar en campañas, redes y presentaciones comerciales.",
     link:"#",
-    image:"assets/westock-card.png",
+    image:"assets/videos/publicidad-wesell-ml-thumb.jpg",
     video:"assets/videos/publicidad-wesell-ml.mp4",
     previewVideo:"assets/videos/publicidad-wesell-ml.mp4",
     alt:"Video comercial de servicios para Mercado Libre"
@@ -1029,7 +1047,7 @@ const projects = [
     tools:"AI content, social media, video corto, automatización creativa, marketing digital",
     result:"Formato ágil para comunicar servicios, probar mensajes y generar primeras interacciones.",
     link:"#",
-    image:"assets/westock-card.png",
+    image:"assets/videos/reel-ia-mujer-thumb.jpg",
     video:"assets/videos/reel-ia-mujer.mp4",
     previewVideo:"assets/videos/reel-ia-mujer.mp4",
     alt:"Reel con IA aplicado a comunicación comercial"
@@ -1055,9 +1073,9 @@ const projects = [
     tools:"Producción audiovisual, podcast, storytelling, comunicación B2B, edición de video",
     result:"Contenido reutilizable para redes sociales, presentaciones comerciales y posicionamiento de marca.",
     link:"#",
-    image:"assets/westock-card.png",
-    video:"assets/videos/PODCAST%20WE%20SELL%20SOLUCIONES.mp4",
-    previewVideo:"assets/videos/PODCAST%20WE%20SELL%20SOLUCIONES.mp4",
+    image:"assets/videos/podcast-we-sell-thumb.jpg",
+    video:"assets/videos/podcast-we-sell.mp4",
+    previewVideo:"assets/videos/podcast-we-sell.mp4",
     alt:"Podcast de We Sell Soluciones sobre negocios digitales"
   }
 ];
@@ -1241,7 +1259,7 @@ function renderProjects(){
   document.getElementById("projGrid").innerHTML = projects.map(p=>`
     <div class="proj-card">
       <div class="proj-img">
-        ${p.previewVideo ? `<video src="${p.previewVideo}" muted loop playsinline preload="metadata" poster="${p.image}" aria-label="${tr(p.alt || p.title)}"></video>` : `<img src="${p.image}" alt="${tr(p.alt || p.title)}" loading="lazy">`}
+        <img src="${p.image}" alt="${tr(p.alt || p.title)}" loading="lazy" decoding="async">
         ${p.video ? `<span class="video-badge">${tr("▶ Ver presentación")}</span>` : ""}
       </div>
       <div class="proj-body">
